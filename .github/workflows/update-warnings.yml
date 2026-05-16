@@ -1,0 +1,30 @@
+name: Update NINA Warnings
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"   # every 5 minutes
+  workflow_dispatch:          # manual trigger
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Fetch NINA warnings
+        run: node scripts/fetch-warnings.mjs
+
+      - name: Commit & push if data changed
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add public/data/warnings.json
+          git diff --staged --quiet || git commit -m "chore: update NINA warnings data"
+          git push

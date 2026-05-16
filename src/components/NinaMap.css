@@ -1,0 +1,90 @@
+.nina-map-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.nina-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 0.4rem 1rem;
+  background: #16213e;
+  border-bottom: 1px solid #0f3460;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.status {
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+}
+
+.status.loading {
+  background: #333;
+  color: #aaa;
+}
+
+.status.error {
+  background: #5c0000;
+  color: #ff8888;
+}
+
+.status.ok {
+  background: #0a3d1f;
+  color: #4caf50;
+}
+
+.last-update {
+  color: #888;
+  font-size: 0.8rem;
+}
+
+.refresh-btn {
+  margin-left: auto;
+  background: #0f3460;
+  color: #eee;
+  border: none;
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.refresh-btn:hover:not(:disabled) {
+  background: #1a5276;
+}
+
+.refresh-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.78rem;
+  color: #bbb;
+}
+
+.legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.leaflet-map {
+  flex: 1;
+}
